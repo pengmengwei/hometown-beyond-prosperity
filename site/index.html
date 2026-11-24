@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>我亲爱的，繁荣之外的故乡 · 大世界式滚动叙事</title>
+  <meta name="description" content="一次向动画电影《大世界》致敬的沉浸式滚动阅读：八个手绘场景，一镜穿过繁荣之外的故乡。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121714'/%3E%3Crect x='8' y='7' width='16' height='18' rx='3' fill='%239fb8a0'/%3E%3Ccircle cx='16' cy='14' r='3.4' fill='%23121714'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="top"></div>
+
+  <!-- 开场封面 -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__inner">
+      <span class="intro__kicker">手绘动画 · 滚动叙事</span>
+      <h1 class="intro__title">我亲爱的<br/>繁荣之外的故乡</h1>
+      <p class="intro__sub">一次向动画电影《大世界》致敬的沉浸式阅读</p>
+      <span class="intro__hint">向下滚动，沉入记忆<i></i></span>
+    </div>
+    <div class="intro__grain"></div>
+  </div>
+
+  <!-- 沉浸交互层（蒸汽 / 尘雾 / 霓虹 / 飞蛾 / 胶片颗粒等） -->
+  <div class="fx" id="fx" aria-hidden="true">
+    <div class="fx__grain"></div>
+    <div class="fx__vignette"></div>
+    <div class="fx__layer fx__steam"><span></span><span></span><span></span></div>
+    <div class="fx__layer fx__smoke"><span></span><span></span></div>
+    <div class="fx__layer fx__water"><span></span><span></span><span></span></div>
+    <div class="fx__layer fx__neon"><i class="n-red"></i><i class="n-green"></i></div>
+    <div class="fx__layer fx__moths"><i></i><i></i><i></i></div>
+    <div class="fx__layer fx__cig"><span></span></div>
+    <div class="fx__layer fx__glint"></div>
+    <div class="fx__layer fx__beam"></div>
+  </div>
+
+  <!-- scroll-world 引擎挂载点 -->
+  <div id="world"></div>
+
+  <script src="scrub-engine.js"></script>
+  <script src="immersive.js"></script>
+  <script>
+    const SRC_URL = 'https://bytedance.larkoffice.com/wiki/MFvLwoxytip4jYkxhmqcjhXXnve';
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: '繁荣之外的故乡', href: '#top' },
+      hint: '向下滚动',
+      atmosphere: false,              // 氛围由自带 fx 层（颗粒/暗角/场景特效）统一控制
+      diveScroll: 1.4,
+      connScroll: 0.85,
+      crossfade: 0.14,
+      sections: [
+        {
+          id: 'death', label: '空椅',
+          still: 'assets/still_1.webp', clip: 'assets/vid/dive_1.mp4',
+          clipMobile: 'assets/vid/dive_1-m.mp4', stillMobile: 'assets/still_1-m.webp',
+          accent: '#9fb8a0', scroll: 1.6, linger: 0.4,
+          eyebrow: '序章 · 一通电话',
+          title: '重重的一声叹息',
+          quote: '大部分人死得既不轻松，也不体面。',
+          body: '电话里得知，两个星期前还在阳台上品茶论道的一个伯伯，突发脑溢血离开了人世。我没有涕泗横流，只是重重叹了一口气。',
+        },
+        {
+          id: 'station', label: '车站',
+          still: 'assets/still_2.webp', clip: 'assets/vid/dive_2.mp4',
+          clipMobile: 'assets/vid/dive_2-m.mp4', stillMobile: 'assets/still_2-m.webp',
+          accent: '#c9b48a', scroll: 1.4, linger: 0.3,
+          eyebrow: '壹 · 迁徙的厂',
+          title: '烟囱下的长途车站',
+          quote: '对呀，唉没办法。',
+          body: '马路边，一个跟着工厂从 S 市搬到 A 省的女人说，将来还会有一批一批工厂搬来。我突然异常难受——家乡好像正变成折叠世界里最底层的那一层。',
+        },
+        {
+          id: 'river', label: '黑河',
+          still: 'assets/still_3.webp', clip: 'assets/vid/dive_3.mp4',
+          clipMobile: 'assets/vid/dive_3-m.mp4', stillMobile: 'assets/still_3-m.webp',
+          accent: '#d97a4a', scroll: 1.6, linger: 0.4,
+          eyebrow: '贰 · 消逝的河',
+          title: '再也扎不进去的夏天',
+          quote: '那时我以为，可以一直这样简简单单地吃下去。',
+          body: '社区后的河、姑妈门前能游泳捞螺蛳的大河，后来一条糜烂得没人靠近，一条干涸消逝。被车撞死的小狗，被父亲埋在了河旁。',
+        },
+        {
+          id: 'brothers', label: '兄弟',
+          still: 'assets/still_4.webp', clip: 'assets/vid/dive_4.mp4',
+          clipMobile: 'assets/vid/dive_4-m.mp4', stillMobile: 'assets/still_4-m.webp',
+          accent: '#c8d94a', scroll: 1.4, linger: 0.3,
+          eyebrow: '叁 · 街头的兄弟',
+          title: '从电影台词到随遇而安',
+          quote: '不管贫穷还是富贵，都是兄弟。',
+          body: '辍学的朋友们流进乡镇、县城与城市，在桌球店、网吧和棋牌室里长大，最后承包工程、开挖掘机、娶妻生子，过上和父辈一样的生活。',
+        },
+        {
+          id: 'poem', label: '读诗',
+          still: 'assets/still_5.webp', clip: 'assets/vid/dive_5.mp4',
+          clipMobile: 'assets/vid/dive_5-m.mp4', stillMobile: 'assets/still_5-m.webp',
+          accent: '#e3c778', scroll: 1.4, linger: 0.35,
+          eyebrow: '肆 · 地下的诗',
+          title: '删掉吧，丢人哩',
+          quote: '我们把象牙塔里的浪漫，强行注射进了地下。',
+          body: '我们请保安读北岛、请宿舍阿姨读《致橡树》，设想粗粝的生命力能与诗歌直接反应。录音却干瘪苦涩，阿姨很多字不认识，只觉得被冒犯。',
+        },
+        {
+          id: 'banquet', label: '酒桌',
+          still: 'assets/still_6.webp', clip: 'assets/vid/dive_6.mp4',
+          clipMobile: 'assets/vid/dive_6-m.mp4', stillMobile: 'assets/still_6-m.webp',
+          accent: '#c25450', scroll: 1.5, linger: 0.4,
+          eyebrow: '伍 · 年关的酒',
+          title: '宁夏很好看，但没心思看',
+          quote: '你哪里来的精神。 ——《刺痛我》',
+          body: '父亲那位梳油头、穿西装的朋友北上包工程，赔得一塌糊涂。过年的酒桌上他轻轻转着酒杯说，宁夏真的很好看，很美，但是我没有心思去看。',
+        },
+        {
+          id: 'buddha', label: '吊坠',
+          still: 'assets/still_7.webp', clip: 'assets/vid/dive_7.mp4',
+          clipMobile: 'assets/vid/dive_7-m.mp4', stillMobile: 'assets/still_7-m.webp',
+          accent: '#d8b35a', scroll: 1.4, linger: 0.35,
+          eyebrow: '陆 · 立即返现的信仰',
+          title: '哪个厉害，就信哪个',
+          quote: '你戴这个，还要供着他。',
+          body: '两元店买来的弥勒佛吊坠被母亲命令扔出门。多年后想起《大世界》里的台词才懂：在这里，信佛不是单纯的信仰，它需要立即返现。',
+        },
+        {
+          id: 'cinema', label: '影院',
+          still: 'assets/still_8.webp', clip: 'assets/vid/dive_8.mp4',
+          clipMobile: 'assets/vid/dive_8-m.mp4', stillMobile: 'assets/still_8-m.webp',
+          accent: '#8fb0d4', scroll: 1.7, linger: 0.45,
+          eyebrow: '尾声',
+          title: '去看看最迫切的苦难',
+          quote: '有耐心看完的人，请去电影院看一看《大世界》。',
+          body: '献给在繁荣之外顽强活着的人们，也献给愿意凝视他们的眼睛。',
+          cta: {
+            primary: { label: '回到开头', href: '#top' },
+            secondary: { label: '阅读原文', href: SRC_URL },
+          },
+        },
+      ],
+      connectors: [
+        'assets/vid/conn_1_2.mp4', 'assets/vid/conn_2_3.mp4', 'assets/vid/conn_3_4.mp4',
+        'assets/vid/conn_4_5.mp4', 'assets/vid/conn_5_6.mp4', 'assets/vid/conn_6_7.mp4',
+        'assets/vid/conn_7_8.mp4',
+      ],
+      connectorsMobile: [
+        'assets/vid/conn_1_2-m.mp4', 'assets/vid/conn_2_3-m.mp4', 'assets/vid/conn_3_4-m.mp4',
+        'assets/vid/conn_4_5-m.mp4', 'assets/vid/conn_5_6-m.mp4', 'assets/vid/conn_6_7-m.mp4',
+        'assets/vid/conn_7_8-m.mp4',
+      ],
+    });
+  </script>
+</body>
+</html>

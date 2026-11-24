@@ -1,0 +1,18 @@
+# 系统/编辑器
+.DS_Store
+node_modules/
+.vercel/
+
+# 版权素材：《大世界》电影截图仅本地作风格参考，不公开（锚定根目录）
+/reference/
+
+# 根目录遗留的空 assets 目录（注意：不能写成 assets/，会误伤 site/assets/）
+/assets/
+
+# 原始抓取 JSON（保留匿名化后的 article_clean.md 即可）
+/article.md
+
+# 大体积中间产物：只公开 prompts 创作素材，忽略视频/定帧/质检/日志
+/work/*
+!/work/prompts/
+!/work/prompts_m/
