@@ -1,6 +1,6 @@
 # 我亲爱的，繁荣之外的故乡 — 大世界式滚动叙事网页
 
-🔗 **在线体验（Vercel）**：部署中，链接将在发布后更新。
+🔗 **在线体验（Vercel）**：[打开作品 →](https://hometown-beyond-prosperity.vercel.app/)
 
 ![预览图](preview.jpg)
 
